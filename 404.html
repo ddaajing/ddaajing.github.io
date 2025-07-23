@@ -22,4 +22,21 @@ layout: default
 
   <p><strong>Page not found :(</strong></p>
   <p>The requested page could not be found.</p>
+
+  <button onclick="requestAudio()">请求麦克风权限</button>
+
+  <script>
+  async function requestAudio() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      console.log("麦克风已授权");
+
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.start();
+    } catch (err) {
+      console.error("授权失败:", err);
+    }
+  }
+  </script>
+
 </div>
