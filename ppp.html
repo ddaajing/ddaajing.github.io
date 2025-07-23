@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Microphone Access in WKWebView</title>
-</head>
-<body>
-    <button onclick="requestAudio()">请求麦克风权限</button>
+---
+permalink: /ppp.html
+layout: default
+---
 
-    <script>
-    async function requestAudio() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        console.log("麦克风已授权");
+<div class="container">
+  <button onclick="requestAudio()">请求麦克风权限</button>
 
-        mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.start();
-      } catch (err) {
-        console.error("授权失败:", err);
-      }
+  <script>
+  async function requestAudio() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      console.log("麦克风已授权");
+
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.start();
+    } catch (err) {
+      console.error("授权失败:", err);
     }
-    </script>
-</body>
-</html>
+  }
+  </script>
+
+</div>
